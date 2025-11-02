@@ -1,7 +1,7 @@
 # 🧠 Naïve Bayes Spam Comment Detector  
 
 A Natural Language Processing (NLP) project that classifies YouTube comments as **spam** or **non-spam** using a **Multinomial Naïve Bayes** model.  
-Developed by **Adilet Masalbekov**, Arcan Caglayan, and Muhammed Ikbal Ekinci for *COMP 237 – Introudction to Artificial Intelligence*.
+Developed by **Adilet Masalbekov**, Arcan Caglayan, and Muhammed Ikbal Ekinci for *COMP 237 – Introduction to Artificial Intelligence*.
 
 ---
 
@@ -11,41 +11,43 @@ Developed by **Adilet Masalbekov**, Arcan Caglayan, and Muhammed Ikbal Ekinci fo
 - **Techniques:** Count Vectorization + TF-IDF Transformation + Multinomial Naïve Bayes  
 - **Evaluation:** Cross-validation and accuracy testing on held-out data  
 
+> The script automatically downloads the dataset from UCI.  
+> If the direct CSV is unavailable, it falls back to downloading and reading the official ZIP archive.
+
 ---
 
 ## 📊 Results
 | Metric | Result |
 |:--|:--|
-| Cross-validation mean accuracy | **93.87 %** |
-| Test set accuracy | **95.45 %** |
-| Confusion matrix | 42 TP  |  42 TN  |  3 FP  |  1 FN |
+| Cross-validation mean accuracy | **93.9 %** |
+| Test set accuracy | **96.6 %** |
+| Confusion matrix | 44 TP   41 TN   1 FP   2 FN |
 
-The model reliably distinguishes spam from non-spam comments with minimal misclassifications :contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
+The model reliably distinguishes spam from non-spam comments with minimal misclassifications.
 
 ---
 
 ## 🧠 Pipeline Summary
-1. **Data Loading & Exploration** – Inspected dataset for structure and balance.  
-2. **Pre-processing & Vectorization** – Used `CountVectorizer` with English stop words to tokenize text.  
-3. **TF-IDF Transformation** – Weighted features by importance across comments.  
-4. **Model Training** – Trained `MultinomialNB` on 75 % of the data.  
-5. **Cross-Validation & Testing** – Performed 5-fold CV and evaluated on the remaining 25 %.  
-6. **Real-World Validation** – Successfully classified new manually written comments.  
+1. **Data Loading & Exploration** – Automatically downloads and loads the dataset from UCI.  
+2. **Pre-processing & Vectorization** – Uses `CountVectorizer(stop_words='english')` to tokenize text.  
+3. **TF-IDF Transformation** – Weights features by importance across comments.  
+4. **Model Training** – Trains a `MultinomialNB` classifier on a stratified 75 / 25 split.  
+5. **Cross-Validation & Testing** – Performs 5-fold CV and evaluates on the held-out test set.  
+6. **Real-World Validation** – Classifies new user-written comments to demonstrate generalization.
 
 ---
 
 ## 🧰 Tech Stack
 - **Python 3**
-- **Pandas**
+- **pandas**
 - **scikit-learn**
-- **NLTK**
+- **requests**
 
 ---
 
 ## ⚙️ Run Locally
-Clone the repository and run the Python script:
 
+### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/adilet0212/naive-bayes-spam-detector.git
 cd naive-bayes-spam-detector
-python project_script.py

@@ -1,0 +1,22 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environments
+.env/
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE / editor configs
+.vscode/
+.idea/
